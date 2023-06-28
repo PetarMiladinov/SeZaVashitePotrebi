@@ -67,9 +67,23 @@ namespace SeZaVashitePotrebi
 
             MessageBox.Show("Login successful!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Clear the login form
-            txtUsernameInput.Clear();
-            txtPasswordInput.Clear();
+            // Call the SuccessfulLogin method to open the items form
+            SuccessfulLogin();
+        }
+
+        private void SuccessfulLogin()
+        {
+            // Hide the login form
+            this.Hide();
+
+            // Create an instance of the form that displays the list of items
+            var loggedInForm = new LoggedInForm();
+
+            // Show the items form
+            loggedInForm.ShowDialog();
+
+            // Close the application when the items form is closed
+            Application.Exit();
         }
     }
 }
