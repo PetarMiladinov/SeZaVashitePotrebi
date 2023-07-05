@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeZaVashitePotrebi
 {
-    internal class Item
+    public class Item
     {
 
         public string Name { get; set; }
@@ -14,12 +14,15 @@ namespace SeZaVashitePotrebi
         public int Period { get; set; } // Used for rental items, represents the rental period in days
         public decimal Price { get; set; } // Used for items available for purchase
 
-        public Item(string name, ItemType type, int period, decimal price)
+        public string Image { get; set; }
+
+        public Item(string name, ItemType type, int period, decimal price, string image)
         {
             Name = name;
             Type = type;
             Period = period;
             Price = price;
+            Image = image;
         }
     }
 

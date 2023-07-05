@@ -28,79 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtUsernameInput = new TextBox();
-            txtPasswordInput = new TextBox();
-            btnLogin = new Button();
-            btnRegister = new Button();
-            txtEmailInput = new TextBox();
-            SuspendLayout();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
-            // txtUsernameInput
+            // tbSearch
             // 
-            txtUsernameInput.Location = new Point(331, 114);
-            txtUsernameInput.Name = "txtUsernameInput";
-            txtUsernameInput.Size = new Size(125, 27);
-            txtUsernameInput.TabIndex = 0;
-            txtUsernameInput.Text = "Username";
+            this.tbSearch.Location = new System.Drawing.Point(11, 12);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(473, 27);
+            this.tbSearch.TabIndex = 0;
             // 
-            // txtPasswordInput
+            // btnSearch
             // 
-            txtPasswordInput.Location = new Point(331, 147);
-            txtPasswordInput.Name = "txtPasswordInput";
-            txtPasswordInput.PasswordChar = '/';
-            txtPasswordInput.Size = new Size(125, 27);
-            txtPasswordInput.TabIndex = 1;
-            txtPasswordInput.Text = "Password";
+            this.btnSearch.Location = new System.Drawing.Point(491, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(94, 36);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // btnLogin
+            // btnLogIn
             // 
-            btnLogin.Location = new Point(348, 265);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(94, 29);
-            btnLogin.TabIndex = 2;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
+            this.btnLogIn.Location = new System.Drawing.Point(608, 12);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(86, 36);
+            this.btnLogIn.TabIndex = 2;
+            this.btnLogIn.Text = "LOG IN";
+            this.btnLogIn.UseVisualStyleBackColor = true;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(348, 217);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(94, 29);
-            btnRegister.TabIndex = 3;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
-            // 
-            // txtEmailInput
-            // 
-            txtEmailInput.Location = new Point(331, 184);
-            txtEmailInput.Name = "txtEmailInput";
-            txtEmailInput.Size = new Size(125, 27);
-            txtEmailInput.TabIndex = 4;
+            this.btnRegister.Location = new System.Drawing.Point(701, 12);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(86, 36);
+            this.btnRegister.TabIndex = 3;
+            this.btnRegister.Text = "REGISTER";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtEmailInput);
-            Controls.Add(btnRegister);
-            Controls.Add(btnLogin);
-            Controls.Add(txtPasswordInput);
-            Controls.Add(txtUsernameInput);
-            Name = "Form1";
-            Text = "Form1";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnLogIn);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.tbSearch);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
 
-        private TextBox txtUsernameInput;
-        private TextBox txtPasswordInput;
-        private Button btnLogin;
+        private TextBox tbSearch;
+        private Button btnSearch;
+        private Button btnLogIn;
         private Button btnRegister;
-        private TextBox txtEmailInput;
     }
 }
