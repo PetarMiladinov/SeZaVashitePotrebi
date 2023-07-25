@@ -15,9 +15,10 @@ namespace SeZaVashitePotrebi
         public string Country { get; set; }
         public string City { get; set; }
         public string PhoneNumber { get; set; }
+        public bool IsSeller { get; set; }
         public List<Item> usersItems { get; set; }
 
-        public User(string username, string password, string email, string country, string city, string phoneNumber)
+        public User(string username, string password, string email, string country, string city, string phoneNumber, bool isSeller)
         {
             Username = username;
             Password = password;
@@ -26,6 +27,8 @@ namespace SeZaVashitePotrebi
             City = city;
             PhoneNumber = phoneNumber;
             usersItems = new List<Item>();
+            IsSeller = isSeller;
+
         }
     }
 }

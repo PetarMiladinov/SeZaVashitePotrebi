@@ -1,6 +1,8 @@
 using System.Drawing.Text;
 using System.Windows.Forms;
 
+//TODO: Post Button to be placed where its neeeded.
+
 namespace SeZaVashitePotrebi
 {
     public partial class Form1 : Form
@@ -33,8 +35,9 @@ namespace SeZaVashitePotrebi
             btnSearch.Location = new Point((int)((int)this.Width * 0.40) + 20, tbSearch.Location.Y);
             btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
             btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
+            btnPost.Visible = false;
             MakeBoxes(AllItems);
-            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000"));
+            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", false));
         }
 
         private void MakeBoxes(List<Item> it)
@@ -47,10 +50,11 @@ namespace SeZaVashitePotrebi
             for (int i = 0; i < it.Count; i++)
             {
                 Boxes.Add(new GroupBox());
-                if(i == 0)
+                if (i == 0)
                 {
                     Boxes[i].Location = new Point(tbSearch.Location.X, tbSearch.Location.Y + 40);
-                } else
+                }
+                else
                 {
                     Boxes[i].Location = new Point(tbSearch.Location.X, Boxes[i - 1].Location.Y + 240);
                 }
@@ -83,7 +87,7 @@ namespace SeZaVashitePotrebi
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             LogInForm login = new LogInForm(RegisteredUsers);
-            if(login.ShowDialog() == DialogResult.OK && login.user != null)
+            if (login.ShowDialog() == DialogResult.OK && login.user != null)
             {
                 LoggedIn = login.user;
                 btnLogIn.Visible = false;
@@ -94,6 +98,18 @@ namespace SeZaVashitePotrebi
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 uname.Font = new Font("Arial", 14, FontStyle.Bold);
                 uname.Size = new Size(200, 40);
+                if (LoggedIn != null && LoggedIn.IsSeller)
+                {
+                    // If the user is logged in as a seller, make the "Post Item" button visible
+                    btnPost.Visible = true;
+                    btnPost.Location = new Point(uname.Location.X - btnPost.Width - 35, uname.Location.Y);
+                    btnPost.Size = new Size(100, 40);
+                }
+                else
+                {
+                    // If the user is not a seller or not logged in, hide the "Post Item" button
+                    btnPost.Visible = false;
+                }
                 Button btnMyAcc = new Button();
                 btnMyAcc.Text = "My Account";
                 btnMyAcc.Click += new EventHandler(this.btnMyAcc_Click);
@@ -117,6 +133,12 @@ namespace SeZaVashitePotrebi
         private void btnMyAcc_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPost_Click(object sender, EventArgs e)
+        {
+            var postItemForm = new PostItemForm(LoggedIn.usersItems);
+            postItemForm.ShowDialog();
         }
     }
 }

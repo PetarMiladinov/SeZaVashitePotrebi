@@ -42,13 +42,15 @@ namespace SeZaVashitePotrebi
                 return;
             }
 
-            if(users.Any(u => u.Email == email))
+            if (users.Any(u => u.Email == email))
             {
                 MessageBox.Show("E-mail already exists. Please choose a different E-mail.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            user = new User(username, password, email, country, city, number);
+            bool isSeller = rbSeller.Checked;
+
+            user = new User(username, password, email, country, city, number, isSeller);
 
             MessageBox.Show("Registration successful!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
