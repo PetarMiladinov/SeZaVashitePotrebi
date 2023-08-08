@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SeZaVashitePotrebi.Classes;
 
 //TODO: Make the whole functionlaity of Posting Items on the App
 
@@ -25,12 +26,14 @@ namespace SeZaVashitePotrebi
 
             // Populate the item type ComboBox
             comboType.DataSource = Enum.GetValues(typeof(ItemType));
+            comboCategory.DataSource = Enum.GetValues(typeof(ItemCategory));
         }
 
         private void btnPost_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
             string description = txtDesc.Text;
+            ItemCategory category = (ItemCategory)comboCategory.SelectedItem;
             decimal price;
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(description) || !decimal.TryParse(txtPrice.Text, out price))
@@ -43,7 +46,7 @@ namespace SeZaVashitePotrebi
             int period = type == ItemType.Rent ? (int)numericUpDownRentalPeriod.Value : 0;
 
             // Create a new item
-            Item newItem = new Item(name, type, period, price, selectedImagePath);
+            Item newItem = new Item(name, type, category, period, price, selectedImagePath);
 
 
             items.Add(newItem); // Add the item to the list
@@ -70,6 +73,15 @@ namespace SeZaVashitePotrebi
                 selectedImagePath = openFileDialog.FileName;
                 pictureBox.Image = Image.FromFile(selectedImagePath);
             }
+        }
+
+        private void comboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ItemType selectedType = (ItemType)comboType.SelectedItem;
+            bool showRentalPeriod = selectedType == ItemType.Rent;
+            daysLbl.Visible = showRentalPeriod;
+            lblRentalPeriod.Visible = showRentalPeriod;
+            numericUpDownRentalPeriod.Visible = showRentalPeriod;
         }
     }
 }

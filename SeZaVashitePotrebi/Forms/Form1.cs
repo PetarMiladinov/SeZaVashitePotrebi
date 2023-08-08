@@ -1,5 +1,7 @@
+using System.ComponentModel;
 using System.Drawing.Text;
 using System.Windows.Forms;
+using SeZaVashitePotrebi.Classes;
 
 //TODO: Post Button to be placed where its neeeded.
 
@@ -9,6 +11,7 @@ namespace SeZaVashitePotrebi
     {
         public List<Item> AllItems { get; set; }
         public List<GroupBox> Boxes { get; set; }
+        // private BindingList<Item> itemsBindingList;
 
         public User? LoggedIn { get; set; }
 
@@ -17,15 +20,28 @@ namespace SeZaVashitePotrebi
         public Form1()
         {
             InitializeComponent();
+
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            Controls.Add(flowLayoutPanel1);
+
             AllItems = new List<Item>() {
-                new Item("Book", ItemType.Buy, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg"),
-                new Item("Laptop", ItemType.Buy, 0, 999.99m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg"),
-                new Item("Bicycle", ItemType.Rent, 7, 50m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg"),
-                new Item("Camera", ItemType.Rent, 3, 25m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg"),
-                new Item("Motorcycle", ItemType.Buy, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg")
+                new Item("Book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg"),
+                new Item("Laptop", ItemType.Buy, ItemCategory.Electronics, 0, 999.99m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg"),
+                new Item("Bicycle", ItemType.Rent, ItemCategory.Vehicle, 7, 50m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg"),
+                new Item("Camera", ItemType.Rent, ItemCategory.Electronics, 3, 25m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg"),
+                new Item("Motorcycle", ItemType.Buy, ItemCategory.Vehicle, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg")
             };
-            Boxes = new List<GroupBox>();
+
+            foreach (Item item in AllItems)
+            {
+                ItemDisplayContorl itemDisplay = new ItemDisplayContorl(item);
+                flowLayoutPanel1.Controls.Add(itemDisplay);
+            }
+
+            // Boxes = new List<GroupBox>();
             RegisteredUsers = new List<User>();
+            comboBox1.DataSource = Enum.GetValues(typeof(ItemCategory));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,7 +52,24 @@ namespace SeZaVashitePotrebi
             btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
             btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             btnPost.Visible = false;
-            MakeBoxes(AllItems);
+           // MakeBoxes(AllItems);
+            flowLayoutPanel1.Location = new Point(0, tbSearch.Bottom + 10);
+            flowLayoutPanel1.Height = (int)(this.Height * 0.6);
+
+            /*            tbSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                        tbSearch.Width = (int)(this.Width * 0.4);
+                        tbSearch.Location = new Point(this.Width - tbSearch.Width - 20, tbSearch.Location.Y);
+
+                        btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                        btnSearch.Location = new Point(tbSearch.Location.X + tbSearch.Width + 5, btnSearch.Location.Y);
+
+                        // Position other buttons using anchoring
+                        btnRegister.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                        btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
+
+                        btnLogIn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+                        btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
+            */
             RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", false));
         }
 
@@ -80,7 +113,10 @@ namespace SeZaVashitePotrebi
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            List<Item> search = AllItems.FindAll(el => el.Name.Contains(tbSearch.Text, StringComparison.CurrentCultureIgnoreCase));
+            string searchTerm = tbSearch.Text;
+            ItemCategory selectedCategory = (ItemCategory)comboBox1.SelectedItem;
+            List<Item> search = AllItems.FindAll(el => el.Name.Contains(tbSearch.Text, StringComparison.CurrentCultureIgnoreCase) &&
+                (selectedCategory == ItemCategory.All || el.Category == selectedCategory));
             MakeBoxes(search);
         }
 

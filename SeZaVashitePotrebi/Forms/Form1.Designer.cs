@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tbSearch = new TextBox();
             btnSearch = new Button();
             btnLogIn = new Button();
             btnRegister = new Button();
             btnPost = new Button();
+            comboBox1 = new ComboBox();
+            itemBindingSource = new BindingSource(components);
+            lblCategory = new Label();
+            itemBindingSource1 = new BindingSource(components);
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)itemBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)itemBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // tbSearch
@@ -85,6 +93,40 @@
             btnPost.UseVisualStyleBackColor = true;
             btnPost.Click += btnPost_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "All", "Electronics", "Books", "Clothing" });
+            comboBox1.Location = new Point(87, 49);
+            comboBox1.Margin = new Padding(3, 4, 3, 4);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(138, 28);
+            comboBox1.TabIndex = 5;
+            // 
+            // itemBindingSource
+            // 
+            itemBindingSource.DataSource = typeof(Item);
+            // 
+            // lblCategory
+            // 
+            lblCategory.AutoSize = true;
+            lblCategory.Location = new Point(14, 53);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(72, 20);
+            lblCategory.TabIndex = 6;
+            lblCategory.Text = "Category:";
+            // 
+            // itemBindingSource1
+            // 
+            itemBindingSource1.DataSource = typeof(Item);
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(120, 156);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(778, 228);
+            flowLayoutPanel1.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -92,6 +134,9 @@
             AutoScroll = true;
             AutoScrollMargin = new Size(0, 50);
             ClientSize = new Size(1095, 487);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(lblCategory);
+            Controls.Add(comboBox1);
             Controls.Add(btnPost);
             Controls.Add(btnRegister);
             Controls.Add(btnLogIn);
@@ -100,6 +145,8 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)itemBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)itemBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,5 +158,10 @@
         private Button btnLogIn;
         private Button btnRegister;
         private Button btnPost;
+        private ComboBox comboBox1;
+        private Label lblCategory;
+        private BindingSource itemBindingSource;
+        private BindingSource itemBindingSource1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
