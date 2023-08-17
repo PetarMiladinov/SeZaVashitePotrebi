@@ -10,8 +10,7 @@ namespace SeZaVashitePotrebi
     public partial class Form1 : Form
     {
         public List<Item> AllItems { get; set; }
-        public List<GroupBox> Boxes { get; set; }
-        // private BindingList<Item> itemsBindingList;
+        public List<ItemDisplayContorl> Boxes { get; set; }
 
         public User? LoggedIn { get; set; }
 
@@ -21,8 +20,6 @@ namespace SeZaVashitePotrebi
         {
             InitializeComponent();
 
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel1.Dock = DockStyle.Fill;
             Controls.Add(flowLayoutPanel1);
 
             AllItems = new List<Item>() {
@@ -33,13 +30,7 @@ namespace SeZaVashitePotrebi
                 new Item("Motorcycle", ItemType.Buy, ItemCategory.Vehicle, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg")
             };
 
-            foreach (Item item in AllItems)
-            {
-                ItemDisplayContorl itemDisplay = new ItemDisplayContorl(item);
-                flowLayoutPanel1.Controls.Add(itemDisplay);
-            }
-
-            // Boxes = new List<GroupBox>();
+            Boxes = new List<ItemDisplayContorl>();
             RegisteredUsers = new List<User>();
             comboBox1.DataSource = Enum.GetValues(typeof(ItemCategory));
         }
@@ -52,9 +43,12 @@ namespace SeZaVashitePotrebi
             btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
             btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             btnPost.Visible = false;
-           // MakeBoxes(AllItems);
-            flowLayoutPanel1.Location = new Point(0, tbSearch.Bottom + 10);
-            flowLayoutPanel1.Height = (int)(this.Height * 0.6);
+            btnMyAcc.Visible = false;
+            uname.Visible = false;
+            flowLayoutPanel1.Location = new Point(0, 80);
+            flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
+            MakeBoxes(AllItems);
+
 
             /*            tbSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left;
                         tbSearch.Width = (int)(this.Width * 0.4);
@@ -70,43 +64,21 @@ namespace SeZaVashitePotrebi
                         btnLogIn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             */
-            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", false));
+            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
         }
 
         private void MakeBoxes(List<Item> it)
         {
-            foreach (GroupBox box in Boxes)
+            foreach (ItemDisplayContorl box in Boxes)
             {
-                this.Controls.Remove(box);
+                flowLayoutPanel1.Controls.Remove(box);
             }
             Boxes.Clear();
             for (int i = 0; i < it.Count; i++)
             {
-                Boxes.Add(new GroupBox());
-                if (i == 0)
-                {
-                    Boxes[i].Location = new Point(tbSearch.Location.X, tbSearch.Location.Y + 40);
-                }
-                else
-                {
-                    Boxes[i].Location = new Point(tbSearch.Location.X, Boxes[i - 1].Location.Y + 240);
-                }
-                Boxes[i].Size = new Size(this.Width - 60, 230);
+                Boxes.Add(new ItemDisplayContorl(it[i]));
 
-                Label n = new Label();
-                n.Text = it[i].Name;
-                n.Location = new Point(250, 30);
-                n.Font = new Font("Arial", 16, FontStyle.Bold);
-                n.Size = new Size(200, 40);
-                Boxes[i].Controls.Add(n);
-
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.ImageLocation = it[i].Image;
-                pictureBox.Size = new Size(200, 200);
-                pictureBox.Location = new Point(10, 20);
-                Boxes[i].Controls.Add(pictureBox);
-
-                this.Controls.Add(Boxes[i]);
+                flowLayoutPanel1.Controls.Add(Boxes[i]);
             }
 
         }
@@ -129,7 +101,7 @@ namespace SeZaVashitePotrebi
                 btnLogIn.Visible = false;
                 btnRegister.Visible = false;
                 login.Close();
-                Label uname = new Label();
+                
                 uname.Text = LoggedIn.Username;
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 uname.Font = new Font("Arial", 14, FontStyle.Bold);
@@ -146,13 +118,13 @@ namespace SeZaVashitePotrebi
                     // If the user is not a seller or not logged in, hide the "Post Item" button
                     btnPost.Visible = false;
                 }
-                Button btnMyAcc = new Button();
+                btnMyAcc.Visible = true;
+                uname.Visible = true;
                 btnMyAcc.Text = "My Account";
-                btnMyAcc.Click += new EventHandler(this.btnMyAcc_Click);
                 btnMyAcc.Location = btnRegister.Location = new Point(this.Width - 170, tbSearch.Location.Y);
                 btnMyAcc.Size = new Size(120, 36);
-                this.Controls.Add(btnMyAcc);
-                this.Controls.Add(uname);
+                
+                
             }
         }
 
@@ -175,6 +147,26 @@ namespace SeZaVashitePotrebi
         {
             var postItemForm = new PostItemForm(LoggedIn.usersItems);
             postItemForm.ShowDialog();
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            tbSearch.Size = new Size((int)((int)this.Width * 0.40), 27);
+            btnSearch.Location = new Point((int)((int)this.Width * 0.40) + 20, tbSearch.Location.Y);
+            if (LoggedIn == null)
+            {
+                btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
+                btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
+            }
+            else {
+                uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
+                btnPost.Location = new Point(uname.Location.X - btnPost.Width - 35, uname.Location.Y);
+                btnMyAcc.Location = btnRegister.Location = new Point(this.Width - 170, tbSearch.Location.Y);
+                
+            }
+            
+            flowLayoutPanel1.Location = new Point(0, 80);
+            flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
         }
     }
 }

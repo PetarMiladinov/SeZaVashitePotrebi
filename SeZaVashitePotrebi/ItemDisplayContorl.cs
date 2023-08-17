@@ -25,5 +25,10 @@ namespace SeZaVashitePotrebi
             lblType.Text = item.Type.ToString();
             pictureBox1.ImageLocation = item.Image;
         }
+
+        private void ItemDisplayContorl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

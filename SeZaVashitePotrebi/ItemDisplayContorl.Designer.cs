@@ -28,72 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblName = new Label();
-            lblCategory = new Label();
-            lblType = new Label();
-            lblPrice = new Label();
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // lblName
             // 
-            lblName.AutoSize = true;
-            lblName.Location = new Point(87, 15);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(49, 20);
-            lblName.TabIndex = 0;
-            lblName.Text = "Name";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(247, 9);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(77, 31);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
             // lblCategory
             // 
-            lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(67, 35);
-            lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(69, 20);
-            lblCategory.TabIndex = 1;
-            lblCategory.Text = "Category";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCategory.Location = new System.Drawing.Point(263, 55);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(79, 23);
+            this.lblCategory.TabIndex = 1;
+            this.lblCategory.Text = "Category";
             // 
             // lblType
             // 
-            lblType.AutoSize = true;
-            lblType.Location = new Point(96, 55);
-            lblType.Name = "lblType";
-            lblType.Size = new Size(40, 20);
-            lblType.TabIndex = 2;
-            lblType.Text = "Type";
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblType.Location = new System.Drawing.Point(263, 92);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(45, 23);
+            this.lblType.TabIndex = 2;
+            this.lblType.Text = "Type";
             // 
             // lblPrice
             // 
-            lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(87, 75);
-            lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(41, 20);
-            lblPrice.TabIndex = 3;
-            lblPrice.Text = "Price";
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPrice.Location = new System.Drawing.Point(263, 153);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(59, 28);
+            this.lblPrice.TabIndex = 3;
+            this.lblPrice.Text = "Price";
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(26, 118);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(185, 99);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.Location = new System.Drawing.Point(17, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // ItemDisplayContorl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pictureBox1);
-            Controls.Add(lblPrice);
-            Controls.Add(lblType);
-            Controls.Add(lblCategory);
-            Controls.Add(lblName);
-            Name = "ItemDisplayContorl";
-            Size = new Size(251, 244);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.lblName);
+            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Name = "ItemDisplayContorl";
+            this.Size = new System.Drawing.Size(345, 222);
+            this.Load += new System.EventHandler(this.ItemDisplayContorl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
