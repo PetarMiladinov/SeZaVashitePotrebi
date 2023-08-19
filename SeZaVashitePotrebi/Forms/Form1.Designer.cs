@@ -41,6 +41,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.uname = new System.Windows.Forms.Label();
             this.btnMyAcc = new System.Windows.Forms.Button();
+            this.btnCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -153,6 +154,16 @@
             this.btnMyAcc.Text = "button1";
             this.btnMyAcc.UseVisualStyleBackColor = true;
             // 
+            // btnCart
+            // 
+            this.btnCart.Location = new System.Drawing.Point(813, 19);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(94, 29);
+            this.btnCart.TabIndex = 10;
+            this.btnCart.Text = "Cart";
+            this.btnCart.UseVisualStyleBackColor = true;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -160,6 +171,7 @@
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 50);
             this.ClientSize = new System.Drawing.Size(1095, 487);
+            this.Controls.Add(this.btnCart);
             this.Controls.Add(this.btnMyAcc);
             this.Controls.Add(this.uname);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -171,6 +183,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbSearch);
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -197,5 +210,6 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Label uname;
         private Button btnMyAcc;
+        private Button btnCart;
     }
 }

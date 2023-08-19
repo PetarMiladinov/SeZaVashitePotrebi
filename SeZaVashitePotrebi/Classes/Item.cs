@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeZaVashitePotrebi.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,11 @@ namespace SeZaVashitePotrebi
         public ItemType Type { get; set; }
         public int Period { get; set; } // Used for rental items, represents the rental period in days
         public decimal Price { get; set; } // Used for items available for purchase
-
         public string Image { get; set; }
 
-        public Item(string name, ItemType type, ItemCategory itemCategory, int period, decimal price, string image)
+        public User User { get; set; }
+
+        public Item(string name, ItemType type, ItemCategory itemCategory, int period, decimal price, string image, User user)
         {
             Name = name;
             Type = type;
@@ -25,6 +27,7 @@ namespace SeZaVashitePotrebi
             Price = price;
             Image = image;
             Category = itemCategory;
+            User = user;
         }
     }
 

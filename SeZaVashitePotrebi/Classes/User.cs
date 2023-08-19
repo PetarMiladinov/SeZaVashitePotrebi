@@ -17,6 +17,7 @@ namespace SeZaVashitePotrebi.Classes
         public string PhoneNumber { get; set; }
         public bool IsSeller { get; set; }
         public List<Item> usersItems { get; set; }
+        public List<Item> cartItems { get; set; } = new List<Item>();
 
         public User(string username, string password, string email, string country, string city, string phoneNumber, bool isSeller)
         {
@@ -28,7 +29,6 @@ namespace SeZaVashitePotrebi.Classes
             PhoneNumber = phoneNumber;
             usersItems = new List<Item>();
             IsSeller = isSeller;
-
         }
     }
 }

@@ -16,13 +16,14 @@ namespace SeZaVashitePotrebi
 {
     public partial class PostItemForm : Form
     {
-        private List<Item> items;
-        private string selectedImagePath;
+        public Item? newItem;
+        public User User;
+        private string? selectedImagePath;
 
-        public PostItemForm(List<Item> items)
+        public PostItemForm(User user)
         {
             InitializeComponent();
-            this.items = items; // Reference to the list of items from the main form
+            User = user;
 
             // Populate the item type ComboBox
             comboType.DataSource = Enum.GetValues(typeof(ItemType));
@@ -46,10 +47,8 @@ namespace SeZaVashitePotrebi
             int period = type == ItemType.Rent ? (int)numericUpDownRentalPeriod.Value : 0;
 
             // Create a new item
-            Item newItem = new Item(name, type, category, period, price, selectedImagePath);
-
-
-            items.Add(newItem); // Add the item to the list
+            newItem = new Item(name, type, category, period, price, selectedImagePath, User);
+            
 
             MessageBox.Show("Item posted successfully!", "Posting", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -61,6 +60,7 @@ namespace SeZaVashitePotrebi
             comboType.SelectedIndex = 0;
             pictureBox.Image = null;
             selectedImagePath = null;
+            this.Close();
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -82,6 +82,16 @@ namespace SeZaVashitePotrebi
             daysLbl.Visible = showRentalPeriod;
             lblRentalPeriod.Visible = showRentalPeriod;
             numericUpDownRentalPeriod.Visible = showRentalPeriod;
+        }
+
+        private void PostItemForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

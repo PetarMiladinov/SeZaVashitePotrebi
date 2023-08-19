@@ -33,6 +33,7 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddToCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,12 +86,23 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAddToCart
+            // 
+            this.btnAddToCart.Location = new System.Drawing.Point(247, 184);
+            this.btnAddToCart.Name = "btnAddToCart";
+            this.btnAddToCart.Size = new System.Drawing.Size(94, 29);
+            this.btnAddToCart.TabIndex = 5;
+            this.btnAddToCart.Text = "Add to cart";
+            this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
+            // 
             // ItemDisplayContorl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.btnAddToCart);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblType);
@@ -98,8 +110,9 @@
             this.Controls.Add(this.lblName);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ItemDisplayContorl";
-            this.Size = new System.Drawing.Size(345, 222);
+            this.Size = new System.Drawing.Size(359, 222);
             this.Load += new System.EventHandler(this.ItemDisplayContorl_Load);
+            this.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -113,5 +126,6 @@
         private Label lblType;
         private Label lblPrice;
         private PictureBox pictureBox1;
+        public Button btnAddToCart;
     }
 }

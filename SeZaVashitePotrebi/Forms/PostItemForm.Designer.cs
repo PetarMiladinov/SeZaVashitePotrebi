@@ -115,6 +115,7 @@
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(209, 28);
             this.comboType.TabIndex = 6;
+            this.comboType.SelectedIndexChanged += new System.EventHandler(this.comboType_SelectedIndexChanged);
             // 
             // lblType
             // 
@@ -196,6 +197,7 @@
             this.btnPost.TabIndex = 14;
             this.btnPost.Text = "Post";
             this.btnPost.UseVisualStyleBackColor = false;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // btnCancel
             // 
@@ -208,6 +210,7 @@
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // comboCategory
             // 
@@ -253,6 +256,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PostItemForm";
             this.Text = "PostItemForm";
+            this.Load += new System.EventHandler(this.PostItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRentalPeriod)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);

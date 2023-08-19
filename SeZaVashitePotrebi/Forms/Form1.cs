@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Drawing.Text;
 using System.Windows.Forms;
 using SeZaVashitePotrebi.Classes;
+using SeZaVashitePotrebi.Forms;
 
 //TODO: Post Button to be placed where its neeeded.
 
@@ -20,19 +21,20 @@ namespace SeZaVashitePotrebi
         {
             InitializeComponent();
 
-            Controls.Add(flowLayoutPanel1);
-
-            AllItems = new List<Item>() {
-                new Item("Book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg"),
-                new Item("Laptop", ItemType.Buy, ItemCategory.Electronics, 0, 999.99m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg"),
-                new Item("Bicycle", ItemType.Rent, ItemCategory.Vehicle, 7, 50m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg"),
-                new Item("Camera", ItemType.Rent, ItemCategory.Electronics, 3, 25m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg"),
-                new Item("Motorcycle", ItemType.Buy, ItemCategory.Vehicle, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg")
-            };
-
+            //Controls.Add(flowLayoutPanel1);
             Boxes = new List<ItemDisplayContorl>();
             RegisteredUsers = new List<User>();
             comboBox1.DataSource = Enum.GetValues(typeof(ItemCategory));
+
+            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
+
+            AllItems = new List<Item>() {
+                new Item("Book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg", RegisteredUsers[0]),
+                new Item("Laptop", ItemType.Buy, ItemCategory.Electronics, 0, 999.99m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg", RegisteredUsers[0]),
+                new Item("Bicycle", ItemType.Rent, ItemCategory.Vehicle, 7, 50m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg", RegisteredUsers[0]),
+                new Item("Camera", ItemType.Rent, ItemCategory.Electronics, 3, 25m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg", RegisteredUsers[0]),
+                new Item("Motorcycle", ItemType.Buy, ItemCategory.Vehicle, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg", RegisteredUsers[0])
+            };
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace SeZaVashitePotrebi
             btnPost.Visible = false;
             btnMyAcc.Visible = false;
             uname.Visible = false;
+            btnCart.Visible = false;
             flowLayoutPanel1.Location = new Point(0, 80);
             flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
             MakeBoxes(AllItems);
@@ -64,7 +67,7 @@ namespace SeZaVashitePotrebi
                         btnLogIn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             */
-            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
+            
         }
 
         private void MakeBoxes(List<Item> it)
@@ -76,7 +79,11 @@ namespace SeZaVashitePotrebi
             Boxes.Clear();
             for (int i = 0; i < it.Count; i++)
             {
-                Boxes.Add(new ItemDisplayContorl(it[i]));
+                Boxes.Add(new ItemDisplayContorl(it[i], LoggedIn));
+                if(LoggedIn == null)
+                {
+                    Boxes[i].btnAddToCart.Visible = false;
+                }
 
                 flowLayoutPanel1.Controls.Add(Boxes[i]);
             }
@@ -123,8 +130,14 @@ namespace SeZaVashitePotrebi
                 btnMyAcc.Text = "My Account";
                 btnMyAcc.Location = btnRegister.Location = new Point(this.Width - 170, tbSearch.Location.Y);
                 btnMyAcc.Size = new Size(120, 36);
-                
-                
+                btnCart.Visible = true;
+                btnCart.Size = new Size(120, 36);
+                btnCart.Location = new Point(uname.Location.X - 250, tbSearch.Location.Y);
+                MakeBoxes(AllItems);
+                foreach(ItemDisplayContorl itemDisplay in Boxes)
+                {
+                    itemDisplay.btnAddToCart.Visible = true;
+                }
             }
         }
 
@@ -145,8 +158,15 @@ namespace SeZaVashitePotrebi
 
         private void btnPost_Click(object sender, EventArgs e)
         {
-            var postItemForm = new PostItemForm(LoggedIn.usersItems);
+            PostItemForm postItemForm = new PostItemForm(LoggedIn);
             postItemForm.ShowDialog();
+            if(postItemForm.newItem != null)
+            {
+                AllItems.Add(postItemForm.newItem);
+                MakeBoxes(AllItems);
+                LoggedIn.usersItems.Add(postItemForm.newItem);
+            }
+            
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -162,11 +182,17 @@ namespace SeZaVashitePotrebi
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 btnPost.Location = new Point(uname.Location.X - btnPost.Width - 35, uname.Location.Y);
                 btnMyAcc.Location = btnRegister.Location = new Point(this.Width - 170, tbSearch.Location.Y);
-                
+                btnCart.Location = new Point(uname.Location.X - 250, tbSearch.Location.Y);
             }
             
             flowLayoutPanel1.Location = new Point(0, 80);
             flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
+        }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            CartForm cartForm = new CartForm(LoggedIn);
+            cartForm.ShowDialog();
         }
     }
 }
