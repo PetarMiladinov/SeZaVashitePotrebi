@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SeZaVashitePotrebi.Classes
 {
-    public class User
+    public class AppUser
     {
 
         public string Username { get; set; }
@@ -19,7 +19,7 @@ namespace SeZaVashitePotrebi.Classes
         public List<Item> usersItems { get; set; }
         public List<Item> cartItems { get; set; } = new List<Item>();
 
-        public User(string username, string password, string email, string country, string city, string phoneNumber, bool isSeller)
+        public AppUser(string username, string password, string email, string country, string city, string phoneNumber, bool isSeller)
         {
             Username = username;
             Password = password;
@@ -30,5 +30,6 @@ namespace SeZaVashitePotrebi.Classes
             usersItems = new List<Item>();
             IsSeller = isSeller;
         }
+
     }
 }

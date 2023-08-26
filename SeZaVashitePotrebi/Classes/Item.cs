@@ -17,9 +17,9 @@ namespace SeZaVashitePotrebi
         public decimal Price { get; set; } // Used for items available for purchase
         public string Image { get; set; }
 
-        public User User { get; set; }
+        public AppUser User { get; set; }
 
-        public Item(string name, ItemType type, ItemCategory itemCategory, int period, decimal price, string image, User user)
+        public Item(string name, ItemType type, ItemCategory itemCategory, int period, decimal price, string image, AppUser user)
         {
             Name = name;
             Type = type;

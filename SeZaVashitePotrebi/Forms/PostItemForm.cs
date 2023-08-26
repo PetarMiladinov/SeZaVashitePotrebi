@@ -17,10 +17,10 @@ namespace SeZaVashitePotrebi
     public partial class PostItemForm : Form
     {
         public Item? newItem;
-        public User User;
+        public AppUser User;
         private string? selectedImagePath;
 
-        public PostItemForm(User user)
+        public PostItemForm(AppUser user)
         {
             InitializeComponent();
             User = user;

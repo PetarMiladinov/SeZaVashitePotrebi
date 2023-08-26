@@ -28,95 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            lblName = new Label();
+            lblCategory = new Label();
+            lblType = new Label();
+            lblPrice = new Label();
+            pictureBox1 = new PictureBox();
+            btnAddToCart = new Button();
+            btnRemoveFromCart = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(247, 9);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(77, 31);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblName.Location = new Point(247, 9);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(77, 31);
+            lblName.TabIndex = 0;
+            lblName.Text = "Name";
             // 
             // lblCategory
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCategory.Location = new System.Drawing.Point(263, 55);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(79, 23);
-            this.lblCategory.TabIndex = 1;
-            this.lblCategory.Text = "Category";
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCategory.Location = new Point(263, 55);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(79, 23);
+            lblCategory.TabIndex = 1;
+            lblCategory.Text = "Category";
             // 
             // lblType
             // 
-            this.lblType.AutoSize = true;
-            this.lblType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblType.Location = new System.Drawing.Point(263, 92);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(45, 23);
-            this.lblType.TabIndex = 2;
-            this.lblType.Text = "Type";
+            lblType.AutoSize = true;
+            lblType.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lblType.Location = new Point(263, 92);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(45, 23);
+            lblType.TabIndex = 2;
+            lblType.Text = "Type";
             // 
             // lblPrice
             // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPrice.Location = new System.Drawing.Point(263, 153);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(59, 28);
-            this.lblPrice.TabIndex = 3;
-            this.lblPrice.Text = "Price";
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPrice.Location = new Point(263, 153);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(59, 28);
+            lblPrice.TabIndex = 3;
+            lblPrice.Text = "Price";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new Point(17, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(200, 200);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Location = new System.Drawing.Point(247, 184);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(94, 29);
-            this.btnAddToCart.TabIndex = 5;
-            this.btnAddToCart.Text = "Add to cart";
-            this.btnAddToCart.UseVisualStyleBackColor = true;
-            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
+            btnAddToCart.Location = new Point(247, 184);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new Size(94, 29);
+            btnAddToCart.TabIndex = 5;
+            btnAddToCart.Text = "Add to cart";
+            btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.Click += btnAddToCart_Click;
+            // 
+            // btnRemoveFromCart
+            // 
+            btnRemoveFromCart.Location = new Point(247, 121);
+            btnRemoveFromCart.Name = "btnRemoveFromCart";
+            btnRemoveFromCart.Size = new Size(94, 29);
+            btnRemoveFromCart.TabIndex = 6;
+            btnRemoveFromCart.Text = "Remove";
+            btnRemoveFromCart.UseVisualStyleBackColor = true;
+            btnRemoveFromCart.Click += btnRemoveFromCart_Click;
             // 
             // ItemDisplayContorl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.btnAddToCart);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.lblName);
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "ItemDisplayContorl";
-            this.Size = new System.Drawing.Size(359, 222);
-            this.Load += new System.EventHandler(this.ItemDisplayContorl_Load);
-            this.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(btnRemoveFromCart);
+            Controls.Add(btnAddToCart);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblPrice);
+            Controls.Add(lblType);
+            Controls.Add(lblCategory);
+            Controls.Add(lblName);
+            Margin = new Padding(5);
+            Name = "ItemDisplayContorl";
+            Size = new Size(392, 268);
+            Load += ItemDisplayContorl_Load;
+            Click += ItemDisplayContorl_Click;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -127,5 +138,6 @@
         private Label lblPrice;
         private PictureBox pictureBox1;
         public Button btnAddToCart;
+        private Button btnRemoveFromCart;
     }
 }

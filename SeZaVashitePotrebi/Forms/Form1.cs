@@ -13,9 +13,9 @@ namespace SeZaVashitePotrebi
         public List<Item> AllItems { get; set; }
         public List<ItemDisplayContorl> Boxes { get; set; }
 
-        public User? LoggedIn { get; set; }
+        public AppUser? LoggedIn { get; set; }
 
-        public List<User> RegisteredUsers { get; set; }
+        public List<AppUser> RegisteredUsers { get; set; }
 
         public Form1()
         {
@@ -23,10 +23,10 @@ namespace SeZaVashitePotrebi
 
             //Controls.Add(flowLayoutPanel1);
             Boxes = new List<ItemDisplayContorl>();
-            RegisteredUsers = new List<User>();
+            RegisteredUsers = new List<AppUser>();
             comboBox1.DataSource = Enum.GetValues(typeof(ItemCategory));
 
-            RegisteredUsers.Add(new User("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
+            RegisteredUsers.Add(new AppUser("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
 
             AllItems = new List<Item>() {
                 new Item("Book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg", RegisteredUsers[0]),
@@ -67,7 +67,7 @@ namespace SeZaVashitePotrebi
                         btnLogIn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                         btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             */
-            
+
         }
 
         private void MakeBoxes(List<Item> it)
@@ -79,8 +79,8 @@ namespace SeZaVashitePotrebi
             Boxes.Clear();
             for (int i = 0; i < it.Count; i++)
             {
-                Boxes.Add(new ItemDisplayContorl(it[i], LoggedIn));
-                if(LoggedIn == null)
+                Boxes.Add(new ItemDisplayContorl(it[i], LoggedIn, this));
+                if (LoggedIn == null)
                 {
                     Boxes[i].btnAddToCart.Visible = false;
                 }
@@ -108,7 +108,7 @@ namespace SeZaVashitePotrebi
                 btnLogIn.Visible = false;
                 btnRegister.Visible = false;
                 login.Close();
-                
+
                 uname.Text = LoggedIn.Username;
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 uname.Font = new Font("Arial", 14, FontStyle.Bold);
@@ -134,7 +134,7 @@ namespace SeZaVashitePotrebi
                 btnCart.Size = new Size(120, 36);
                 btnCart.Location = new Point(uname.Location.X - 250, tbSearch.Location.Y);
                 MakeBoxes(AllItems);
-                foreach(ItemDisplayContorl itemDisplay in Boxes)
+                foreach (ItemDisplayContorl itemDisplay in Boxes)
                 {
                     itemDisplay.btnAddToCart.Visible = true;
                 }
@@ -153,6 +153,8 @@ namespace SeZaVashitePotrebi
 
         private void btnMyAcc_Click(object sender, EventArgs e)
         {
+            MyAccountForm myAccountForm = new MyAccountForm(LoggedIn);
+            myAccountForm.ShowDialog();
 
         }
 
@@ -160,13 +162,13 @@ namespace SeZaVashitePotrebi
         {
             PostItemForm postItemForm = new PostItemForm(LoggedIn);
             postItemForm.ShowDialog();
-            if(postItemForm.newItem != null)
+            if (postItemForm.newItem != null)
             {
                 AllItems.Add(postItemForm.newItem);
                 MakeBoxes(AllItems);
                 LoggedIn.usersItems.Add(postItemForm.newItem);
             }
-            
+
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)
@@ -178,13 +180,14 @@ namespace SeZaVashitePotrebi
                 btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
                 btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
             }
-            else {
+            else
+            {
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 btnPost.Location = new Point(uname.Location.X - btnPost.Width - 35, uname.Location.Y);
                 btnMyAcc.Location = btnRegister.Location = new Point(this.Width - 170, tbSearch.Location.Y);
                 btnCart.Location = new Point(uname.Location.X - 250, tbSearch.Location.Y);
             }
-            
+
             flowLayoutPanel1.Location = new Point(0, 80);
             flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
         }

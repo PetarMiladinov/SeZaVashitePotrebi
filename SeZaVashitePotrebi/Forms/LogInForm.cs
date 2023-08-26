@@ -13,9 +13,9 @@ namespace SeZaVashitePotrebi
 {
     public partial class LogInForm : Form
     {
-        public User? user;
-        public List<User> users;
-        public LogInForm(List<User> users)
+        public AppUser? user;
+        public List<AppUser> users;
+        public LogInForm(List<AppUser> users)
         {
             InitializeComponent();
             this.users = users;

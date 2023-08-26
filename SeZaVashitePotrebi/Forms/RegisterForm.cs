@@ -13,10 +13,10 @@ namespace SeZaVashitePotrebi
 {
     public partial class RegisterForm : Form
     {
-        public User? user;
-        public List<User> users;
+        public AppUser? user;
+        public List<AppUser> users;
 
-        public RegisterForm(List<User> users)
+        public RegisterForm(List<AppUser> users)
         {
             InitializeComponent();
             this.users = users;
@@ -51,7 +51,7 @@ namespace SeZaVashitePotrebi
 
             bool isSeller = rbSeller.Checked;
 
-            user = new User(username, password, email, country, city, number, isSeller);
+            user = new AppUser(username, password, email, country, city, number, isSeller);
 
             MessageBox.Show("Registration successful!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

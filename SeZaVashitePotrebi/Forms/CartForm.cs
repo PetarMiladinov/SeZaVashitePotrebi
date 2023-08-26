@@ -1,22 +1,14 @@
 ﻿using SeZaVashitePotrebi.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace SeZaVashitePotrebi.Forms
 {
     public partial class CartForm : Form
     {
-        User user;
+        AppUser user;
         public List<ItemDisplayContorl> Boxes { get; set; } = new List<ItemDisplayContorl>();
         public List<Item> items { get; set; }
-        public CartForm(User user)
+
+        public CartForm(AppUser user)
         {
             InitializeComponent();
             this.user = user;
@@ -28,11 +20,12 @@ namespace SeZaVashitePotrebi.Forms
             foreach (ItemDisplayContorl box in Boxes)
             {
                 flowLayoutPanel1.Controls.Remove(box);
+                box.Dispose();
             }
             Boxes.Clear();
             for (int i = 0; i < it.Count; i++)
             {
-                Boxes.Add(new ItemDisplayContorl(it[i], user));
+                Boxes.Add(new ItemDisplayContorl(it[i], user, this));
                 Boxes[i].btnAddToCart.Visible = false;
 
                 flowLayoutPanel1.Controls.Add(Boxes[i]);
@@ -44,10 +37,42 @@ namespace SeZaVashitePotrebi.Forms
         {
             MakeBoxes(items);
             decimal total = 0;
-            foreach(Item item in items)
+            foreach (Item item in items)
             {
                 total += item.Price;
             }
+            lblTotal.Text = total.ToString();
+        }
+
+        private void btnBuy_Click(object sender, EventArgs e)
+        {
+            foreach (var item in user.cartItems)
+            {
+                user.usersItems.Add(item);
+            }
+
+            // Clear the cart items and refresh the cart
+            user.cartItems.Clear();
+            RefreshCart();
+        }
+
+        private void RefreshTotal()
+        {
+            decimal total = 0;
+            foreach (Item item in user.cartItems)
+            {
+                total += item.Price;
+            }
+            lblTotal.Text = total.ToString();
+        }
+
+
+        public void RefreshCart()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            MakeBoxes(user.cartItems);
+
+            decimal total = user.cartItems.Sum(item => item.Price);
             lblTotal.Text = total.ToString();
         }
     }

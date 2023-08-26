@@ -14,26 +14,41 @@ namespace SeZaVashitePotrebi
 {
     public partial class ItemDisplayContorl : UserControl
     {
-        private Item item;
-        private User LoggedIn;
-        public ItemDisplayContorl(Item item, User user)
+        public Item item;
+        private AppUser LoggedIn;
+        private Form parentForm;
+        public bool SelectedForPurchase;
+        public CartForm CartFormInstance { get; set; }
+
+
+        public ItemDisplayContorl(Item item, AppUser user, Form parentForm)
         {
             InitializeComponent();
 
             this.item = item;
             this.LoggedIn = user;
+            this.parentForm = parentForm;
 
             lblCategory.Text = item.Category.ToString();
             lblName.Text = item.Name.ToString();
             lblPrice.Text = item.Price.ToString();
             lblType.Text = item.Type.ToString();
             pictureBox1.ImageLocation = item.Image;
+
+            btnRemoveFromCart.Visible = false;
+
+            if (parentForm.Text.Contains("Cart"))
+            {
+                btnRemoveFromCart.Visible = true;
+            }
+
         }
 
         private void ItemDisplayContorl_Click(object sender, EventArgs e)
         {
             ItemDetails itemDetailsForm = new ItemDetails(item);
             itemDetailsForm.ShowDialog();
+
         }
 
         private void ItemDisplayContorl_Load(object sender, EventArgs e)
@@ -45,6 +60,18 @@ namespace SeZaVashitePotrebi
         {
             LoggedIn.cartItems.Add(item);
             btnAddToCart.Enabled = false;
+        }
+
+        private void btnRemoveFromCart_Click(object sender, EventArgs e)
+        {
+            LoggedIn.cartItems.Remove(item);
+            parentForm.Controls.Remove(this);
+
+            //good way to check in which form we are working
+            if (parentForm is CartForm cartForm)
+            {
+                cartForm.RefreshCart();
+            }
         }
     }
 }

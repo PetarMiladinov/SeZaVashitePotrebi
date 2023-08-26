@@ -28,78 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.btnBuy = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            label2 = new Label();
+            lblTotal = new Label();
+            btnBuy = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cart items:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(130, 31);
+            label1.TabIndex = 0;
+            label1.Text = "Cart items:";
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 43);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(858, 408);
-            this.flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(12, 43);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(858, 408);
+            flowLayoutPanel1.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(12, 470);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Total: ";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(12, 470);
+            label2.Name = "label2";
+            label2.Size = new Size(79, 31);
+            label2.TabIndex = 0;
+            label2.Text = "Total: ";
             // 
             // lblTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(87, 470);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(27, 31);
-            this.lblTotal.TabIndex = 2;
-            this.lblTotal.Text = "0";
+            lblTotal.AutoSize = true;
+            lblTotal.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotal.Location = new Point(87, 470);
+            lblTotal.Name = "lblTotal";
+            lblTotal.Size = new Size(27, 31);
+            lblTotal.TabIndex = 2;
+            lblTotal.Text = "0";
             // 
             // btnBuy
             // 
-            this.btnBuy.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnBuy.Location = new System.Drawing.Point(756, 457);
-            this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(114, 47);
-            this.btnBuy.TabIndex = 3;
-            this.btnBuy.Text = "BUY";
-            this.btnBuy.UseVisualStyleBackColor = true;
+            btnBuy.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBuy.Location = new Point(756, 457);
+            btnBuy.Name = "btnBuy";
+            btnBuy.Size = new Size(114, 47);
+            btnBuy.TabIndex = 3;
+            btnBuy.Text = "BUY";
+            btnBuy.UseVisualStyleBackColor = true;
+            btnBuy.Click += btnBuy_Click;
             // 
             // CartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 553);
-            this.Controls.Add(this.btnBuy);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.label1);
-            this.Name = "CartForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CartForm";
-            this.Load += new System.EventHandler(this.CartForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(882, 553);
+            Controls.Add(btnBuy);
+            Controls.Add(lblTotal);
+            Controls.Add(label2);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(label1);
+            Name = "CartForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CartForm";
+            Load += CartForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
