@@ -31,6 +31,7 @@
             pictureBox1 = new PictureBox();
             lbItemName = new Label();
             lblType = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -63,11 +64,22 @@
             lblType.TabIndex = 2;
             lblType.Text = "lblType";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Felix Titling", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(235, 108);
+            label1.Name = "label1";
+            label1.Size = new Size(80, 24);
+            label1.TabIndex = 3;
+            label1.Text = "label1";
+            // 
             // ItemDetails
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(610, 331);
+            Controls.Add(label1);
             Controls.Add(lblType);
             Controls.Add(lbItemName);
             Controls.Add(pictureBox1);
@@ -84,5 +96,6 @@
         private PictureBox pictureBox1;
         private Label lbItemName;
         private Label lblType;
+        private Label label1;
     }
 }

@@ -24,7 +24,7 @@ namespace SeZaVashitePotrebi.Forms
             pictureBox1.ImageLocation = item.Image;
             lbItemName.Text = item.Name;
             lblType.Text = item.Type.ToString();
-
+            label1.Text = item.User.Username.ToString();
         }
     }
 }
