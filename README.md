@@ -28,8 +28,13 @@ by category or by name of the product. We were going for something like pazar3.m
 	
 	- ItemDisplayControl is used for creating the card like ads for the application. In its constructor gets 3 arguments (item, user, parentForm). The UI is constructed of labels for the basic info of the item and an image. It has some events, like click event that opens
 a new form displaying the full description of the item.
-	```cs ItemDisplayControl
-	public partial class ItemDisplayContorl : UserControl
+	
+    
+    
+    
+    
+```cs
+public partial class ItemDisplayContorl : UserControl
 {
     public Item item;
     private AppUser LoggedIn;
@@ -95,14 +100,16 @@ a new form displaying the full description of the item.
 	
 ## 2. Quick application Tutorial
  - Firstly the Form1 is opened, displaying the items that are posted on the application.
-	![Alt Image text](/screenshots/form1.png?raw=true "Optional Title")
+	![Alt Image text](/screenshots/form1.png?raw=true "Form1")
  - Then you can either REGISTER or LOGIN on the applicaiton. Depending of your situation, lets say you first need to register
 the register form will be displayed (you can register as a buyer or seller).
-	![Alt Image text](/screenshots/registerForm.png?raw=true "Optional Title")
+	![Alt Image text](/screenshots/registerForm.png?raw=true "RegisterForm")
  - After that you can login clicking on the LOGIN button and open a simple login form.
-	![Alt Image text](/screenshots/registerForm.pngloginForm.png?raw=true "Optional Title")
+	![Alt Image text](/screenshots/loginForm.png?raw=true "LoginForm")
  - You can search for given item name or by category. (after you choose a category press the SEARCH button)
  - If you registered as a seller there will be a PostItem button, which by clicking it opens the POSTITEM form.
-	![Alt Image text](/screenshots/postItemForm.png?raw=true "Optional Title")
+	![Alt Image text](/screenshots/postItemForm.png?raw=true "PostItemForm")
+ - By clicking the MyAccount button, MyAccountForm is opened where the user can track the products ordered/posted/bought.
+	\![Alt Image text](/screenshots/myAccountForm.png?raw=true "MyAccount")
  - If you registered as a buyer, a shopping cart functionality is available.
-	![Alt Image text](/screenshots/cartForm.png?raw=true "Optional Title")
+	![Alt Image text](/screenshots/cartForm.png?raw=true "Shopping Cart")
