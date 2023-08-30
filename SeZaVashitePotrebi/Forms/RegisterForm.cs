@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SeZaVashitePotrebi.Classes;
@@ -20,6 +21,7 @@ namespace SeZaVashitePotrebi
         {
             InitializeComponent();
             this.users = users;
+            tbPassword.UseSystemPasswordChar = true;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -43,9 +45,26 @@ namespace SeZaVashitePotrebi
                 return;
             }
 
+
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            if (!Regex.IsMatch(email, emailPattern))
+            {
+                MessageBox.Show("Please enter a valid email address.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             if (users.Any(u => u.Email == email))
             {
                 MessageBox.Show("E-mail already exists. Please choose a different E-mail.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validate phone number using regular expression
+            string phoneNumberPattern = @"^\d{3}/\d{3}-\d{3}$"; // Customize this pattern to match your desired format
+            if (!Regex.IsMatch(number, phoneNumberPattern))
+            {
+                MessageBox.Show("Please enter a valid phone number in the format xxx/xxx-xxx.", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -41,7 +41,8 @@ namespace SeZaVashitePotrebi
             if (parentForm.Text.Contains("Cart"))
             {
                 btnRemoveFromCart.Visible = true;
-            } else if (parentForm.Text.Contains("Account"))
+            }
+            else if (parentForm.Text.Contains("Account"))
             {
                 btnDelete.Visible = true;
             }
@@ -80,7 +81,7 @@ namespace SeZaVashitePotrebi
 
         private void ItemDisplayContorl_Load(object sender, EventArgs e)
         {
-            if(Program.LoggedIn != null)
+            if (Program.LoggedIn != null)
             {
                 if (Program.LoggedIn.cartItems.Contains(item) || Program.LoggedIn.usersItems.Contains(item))
                 {
@@ -91,14 +92,14 @@ namespace SeZaVashitePotrebi
 
         private void ItemDisplayContorl_MouseLeave(object sender, EventArgs e)
         {
-            this.BorderStyle= BorderStyle.None;
+            this.BorderStyle = BorderStyle.None;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Program.AllItems.Remove(item);
             LoggedIn.usersItems.Remove(item);
-            if(parentForm is MyAccountForm myAcc)
+            if (parentForm is MyAccountForm myAcc)
             {
                 myAcc.RefreshMyAcc();
             }

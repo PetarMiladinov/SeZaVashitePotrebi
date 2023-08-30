@@ -28,142 +28,141 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblType = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.btnRemoveFromCart = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            lblName = new Label();
+            lblCategory = new Label();
+            lblType = new Label();
+            lblPrice = new Label();
+            pictureBox1 = new PictureBox();
+            btnAddToCart = new Button();
+            btnRemoveFromCart = new Button();
+            btnDelete = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(247, 9);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(77, 31);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
-            this.lblName.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.lblName.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.lblName.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            lblName.Location = new Point(247, 9);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(77, 31);
+            lblName.TabIndex = 0;
+            lblName.Text = "Name";
+            lblName.Click += ItemDisplayContorl_Click;
+            lblName.MouseEnter += ItemDisplayContorl_MouseHover;
+            lblName.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // lblCategory
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCategory.Location = new System.Drawing.Point(263, 55);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(79, 23);
-            this.lblCategory.TabIndex = 1;
-            this.lblCategory.Text = "Category";
-            this.lblCategory.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.lblCategory.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.lblCategory.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            lblCategory.Location = new Point(263, 55);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(79, 23);
+            lblCategory.TabIndex = 1;
+            lblCategory.Text = "Category";
+            lblCategory.Click += ItemDisplayContorl_Click;
+            lblCategory.MouseEnter += ItemDisplayContorl_MouseHover;
+            lblCategory.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // lblType
             // 
-            this.lblType.AutoSize = true;
-            this.lblType.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblType.Location = new System.Drawing.Point(263, 92);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(45, 23);
-            this.lblType.TabIndex = 2;
-            this.lblType.Text = "Type";
-            this.lblType.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.lblType.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.lblType.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            lblType.AutoSize = true;
+            lblType.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            lblType.Location = new Point(263, 92);
+            lblType.Name = "lblType";
+            lblType.Size = new Size(45, 23);
+            lblType.TabIndex = 2;
+            lblType.Text = "Type";
+            lblType.Click += ItemDisplayContorl_Click;
+            lblType.MouseEnter += ItemDisplayContorl_MouseHover;
+            lblType.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // lblPrice
             // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPrice.Location = new System.Drawing.Point(263, 133);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(59, 28);
-            this.lblPrice.TabIndex = 3;
-            this.lblPrice.Text = "Price";
-            this.lblPrice.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.lblPrice.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.lblPrice.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPrice.Location = new Point(263, 133);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(59, 28);
+            lblPrice.TabIndex = 3;
+            lblPrice.Text = "Price";
+            lblPrice.Click += ItemDisplayContorl_Click;
+            lblPrice.MouseEnter += ItemDisplayContorl_MouseHover;
+            lblPrice.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(17, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.pictureBox1.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            pictureBox1.Location = new Point(17, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(200, 200);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += ItemDisplayContorl_Click;
+            pictureBox1.MouseEnter += ItemDisplayContorl_MouseHover;
+            pictureBox1.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Location = new System.Drawing.Point(247, 180);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(94, 29);
-            this.btnAddToCart.TabIndex = 5;
-            this.btnAddToCart.Text = "Add to cart";
-            this.btnAddToCart.UseVisualStyleBackColor = true;
-            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
-            this.btnAddToCart.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.btnAddToCart.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            btnAddToCart.Location = new Point(247, 180);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new Size(94, 29);
+            btnAddToCart.TabIndex = 5;
+            btnAddToCart.Text = "Add to cart";
+            btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.Click += btnAddToCart_Click;
+            btnAddToCart.MouseEnter += ItemDisplayContorl_MouseHover;
+            btnAddToCart.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // btnRemoveFromCart
             // 
-            this.btnRemoveFromCart.Location = new System.Drawing.Point(247, 180);
-            this.btnRemoveFromCart.Name = "btnRemoveFromCart";
-            this.btnRemoveFromCart.Size = new System.Drawing.Size(94, 29);
-            this.btnRemoveFromCart.TabIndex = 6;
-            this.btnRemoveFromCart.Text = "Remove";
-            this.btnRemoveFromCart.UseVisualStyleBackColor = true;
-            this.btnRemoveFromCart.Click += new System.EventHandler(this.btnRemoveFromCart_Click);
-            this.btnRemoveFromCart.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.btnRemoveFromCart.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
+            btnRemoveFromCart.Location = new Point(248, 180);
+            btnRemoveFromCart.Name = "btnRemoveFromCart";
+            btnRemoveFromCart.Size = new Size(94, 29);
+            btnRemoveFromCart.TabIndex = 6;
+            btnRemoveFromCart.Text = "Remove";
+            btnRemoveFromCart.UseVisualStyleBackColor = true;
+            btnRemoveFromCart.Click += btnRemoveFromCart_Click;
+            btnRemoveFromCart.MouseEnter += ItemDisplayContorl_MouseHover;
+            btnRemoveFromCart.MouseLeave += ItemDisplayContorl_MouseLeave;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(247, 180);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.Location = new Point(247, 180);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 7;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // ItemDisplayContorl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnRemoveFromCart);
-            this.Controls.Add(this.btnAddToCart);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.lblType);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.lblName);
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "ItemDisplayContorl";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Size = new System.Drawing.Size(394, 270);
-            this.Load += new System.EventHandler(this.ItemDisplayContorl_Load);
-            this.Click += new System.EventHandler(this.ItemDisplayContorl_Click);
-            this.MouseEnter += new System.EventHandler(this.ItemDisplayContorl_MouseHover);
-            this.MouseLeave += new System.EventHandler(this.ItemDisplayContorl_MouseLeave);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            BackColor = SystemColors.ActiveCaption;
+            Controls.Add(btnDelete);
+            Controls.Add(btnRemoveFromCart);
+            Controls.Add(btnAddToCart);
+            Controls.Add(pictureBox1);
+            Controls.Add(lblPrice);
+            Controls.Add(lblType);
+            Controls.Add(lblCategory);
+            Controls.Add(lblName);
+            DoubleBuffered = true;
+            Margin = new Padding(5);
+            Name = "ItemDisplayContorl";
+            RightToLeft = RightToLeft.No;
+            Size = new Size(394, 270);
+            Load += ItemDisplayContorl_Load;
+            Click += ItemDisplayContorl_Click;
+            MouseEnter += ItemDisplayContorl_MouseHover;
+            MouseLeave += ItemDisplayContorl_MouseLeave;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

@@ -19,13 +19,14 @@ namespace SeZaVashitePotrebi
         {
             InitializeComponent();
             this.users = users;
+            tbPassword.UseSystemPasswordChar = true;
+
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
             string username = tbUserName.Text;
             string password = tbPassword.Text;
-
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Please enter your username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
