@@ -33,7 +33,7 @@ namespace SeZaVashitePotrebi
         private void btnPost_Click(object sender, EventArgs e)
         {
             string name = txtName.Text;
-            string description = txtDesc.Text;
+            string description = rtbDesc.Text;
             ItemCategory category = (ItemCategory)comboCategory.SelectedItem;
             decimal price;
 
@@ -47,14 +47,14 @@ namespace SeZaVashitePotrebi
             int period = type == ItemType.Rent ? (int)numericUpDownRentalPeriod.Value : 0;
 
             // Create a new item
-            newItem = new Item(name, type, category, period, price, selectedImagePath, User);
+            newItem = new Item(name, description, type, category, period, price, selectedImagePath, User);
             
 
             MessageBox.Show("Item posted successfully!", "Posting", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Clear the form
             txtName.Clear();
-            txtDesc.Clear();
+            rtbDesc.Clear();
             txtPrice.Clear();
             numericUpDownRentalPeriod.Value = 0;
             comboType.SelectedIndex = 0;

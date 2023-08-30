@@ -1,3 +1,5 @@
+using SeZaVashitePotrebi.Classes;
+
 namespace SeZaVashitePotrebi
 {
     internal static class Program
@@ -5,6 +7,9 @@ namespace SeZaVashitePotrebi
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        public static List<Item> AllItems { get; set; } = new List<Item>();
+        public static List<AppUser> RegisteredUsers { get; set; } = new List<AppUser>();
+        public static AppUser? LoggedIn { get; set; }
         [STAThread]
         static void Main()
         {

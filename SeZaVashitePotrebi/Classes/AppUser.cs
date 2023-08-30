@@ -18,6 +18,7 @@ namespace SeZaVashitePotrebi.Classes
         public bool IsSeller { get; set; }
         public List<Item> usersItems { get; set; }
         public List<Item> cartItems { get; set; } = new List<Item>();
+        public List<Item> purchasedItems { get; set; } = new List<Item>();
 
         public AppUser(string username, string password, string email, string country, string city, string phoneNumber, bool isSeller)
         {

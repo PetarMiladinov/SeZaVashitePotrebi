@@ -48,7 +48,10 @@ namespace SeZaVashitePotrebi.Forms
         {
             foreach (var item in user.cartItems)
             {
-                user.usersItems.Add(item);
+                user.purchasedItems.Add(item);
+                Program.AllItems.Remove(item);
+                int idx = Program.RegisteredUsers.IndexOf(item.User);
+                Program.RegisteredUsers[idx].usersItems.Remove(item);
             }
 
             // Clear the cart items and refresh the cart

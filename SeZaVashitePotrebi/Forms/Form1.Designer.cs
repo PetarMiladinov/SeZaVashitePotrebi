@@ -28,168 +28,193 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            tbSearch = new TextBox();
-            btnSearch = new Button();
-            btnLogIn = new Button();
-            btnRegister = new Button();
-            btnPost = new Button();
-            comboBox1 = new ComboBox();
-            itemBindingSource = new BindingSource(components);
-            lblCategory = new Label();
-            itemBindingSource1 = new BindingSource(components);
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            uname = new Label();
-            btnMyAcc = new Button();
-            btnCart = new Button();
-            ((System.ComponentModel.ISupportInitialize)itemBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)itemBindingSource1).BeginInit();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnPost = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.itemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.uname = new System.Windows.Forms.Label();
+            this.btnMyAcc = new System.Windows.Forms.Button();
+            this.btnCart = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).BeginInit();
+            this.SuspendLayout();
             // 
             // tbSearch
             // 
-            tbSearch.Location = new Point(11, 12);
-            tbSearch.Name = "tbSearch";
-            tbSearch.Size = new Size(473, 27);
-            tbSearch.TabIndex = 0;
+            this.tbSearch.Location = new System.Drawing.Point(11, 12);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(473, 27);
+            this.tbSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(491, 12);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(94, 36);
-            btnSearch.TabIndex = 1;
-            btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
+            this.btnSearch.BackColor = System.Drawing.Color.Azure;
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(491, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(94, 36);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnLogIn
             // 
-            btnLogIn.Location = new Point(608, 12);
-            btnLogIn.Margin = new Padding(3, 4, 3, 4);
-            btnLogIn.Name = "btnLogIn";
-            btnLogIn.Size = new Size(86, 36);
-            btnLogIn.TabIndex = 2;
-            btnLogIn.Text = "LOG IN";
-            btnLogIn.UseVisualStyleBackColor = true;
-            btnLogIn.Click += btnLogIn_Click;
+            this.btnLogIn.BackColor = System.Drawing.Color.Azure;
+            this.btnLogIn.FlatAppearance.BorderSize = 0;
+            this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogIn.Location = new System.Drawing.Point(608, 12);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogIn.Name = "btnLogIn";
+            this.btnLogIn.Size = new System.Drawing.Size(86, 36);
+            this.btnLogIn.TabIndex = 2;
+            this.btnLogIn.Text = "LOG IN";
+            this.btnLogIn.UseVisualStyleBackColor = false;
+            this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
             // btnRegister
             // 
-            btnRegister.Location = new Point(701, 12);
-            btnRegister.Margin = new Padding(3, 4, 3, 4);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(86, 36);
-            btnRegister.TabIndex = 3;
-            btnRegister.Text = "REGISTER";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
+            this.btnRegister.BackColor = System.Drawing.Color.Azure;
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Location = new System.Drawing.Point(701, 12);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(86, 36);
+            this.btnRegister.TabIndex = 3;
+            this.btnRegister.Text = "REGISTER";
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnPost
             // 
-            btnPost.Location = new Point(997, 67);
-            btnPost.Margin = new Padding(3, 4, 3, 4);
-            btnPost.Name = "btnPost";
-            btnPost.Size = new Size(86, 31);
-            btnPost.TabIndex = 4;
-            btnPost.Text = "Post Item";
-            btnPost.UseVisualStyleBackColor = true;
-            btnPost.Click += btnPost_Click;
+            this.btnPost.BackColor = System.Drawing.Color.Azure;
+            this.btnPost.FlatAppearance.BorderSize = 0;
+            this.btnPost.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPost.Location = new System.Drawing.Point(997, 67);
+            this.btnPost.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPost.Name = "btnPost";
+            this.btnPost.Size = new System.Drawing.Size(86, 31);
+            this.btnPost.TabIndex = 4;
+            this.btnPost.Text = "Post Item";
+            this.btnPost.UseVisualStyleBackColor = false;
+            this.btnPost.Click += new System.EventHandler(this.btnPost_Click);
             // 
             // comboBox1
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "All", "Electronics", "Books", "Clothing" });
-            comboBox1.Location = new Point(87, 49);
-            comboBox1.Margin = new Padding(3, 4, 3, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(138, 28);
-            comboBox1.TabIndex = 5;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "All",
+            "Electronics",
+            "Books",
+            "Clothing"});
+            this.comboBox1.Location = new System.Drawing.Point(87, 49);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(138, 28);
+            this.comboBox1.TabIndex = 5;
             // 
             // itemBindingSource
             // 
-            itemBindingSource.DataSource = typeof(Item);
+            this.itemBindingSource.DataSource = typeof(SeZaVashitePotrebi.Item);
             // 
             // lblCategory
             // 
-            lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(14, 53);
-            lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(72, 20);
-            lblCategory.TabIndex = 6;
-            lblCategory.Text = "Category:";
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(14, 53);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(72, 20);
+            this.lblCategory.TabIndex = 6;
+            this.lblCategory.Text = "Category:";
             // 
             // itemBindingSource1
             // 
-            itemBindingSource1.DataSource = typeof(Item);
+            this.itemBindingSource1.DataSource = typeof(SeZaVashitePotrebi.Item);
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.None;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(2, 110);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(778, 228);
-            flowLayoutPanel1.TabIndex = 7;
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(-4, 116);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(778, 228);
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // uname
             // 
-            uname.AutoSize = true;
-            uname.Location = new Point(241, 419);
-            uname.Name = "uname";
-            uname.Size = new Size(50, 20);
-            uname.TabIndex = 8;
-            uname.Text = "label1";
+            this.uname.AutoSize = true;
+            this.uname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uname.Location = new System.Drawing.Point(241, 419);
+            this.uname.Name = "uname";
+            this.uname.Size = new System.Drawing.Size(70, 25);
+            this.uname.TabIndex = 8;
+            this.uname.Text = "label1";
             // 
             // btnMyAcc
             // 
-            btnMyAcc.Location = new Point(36, 419);
-            btnMyAcc.Name = "btnMyAcc";
-            btnMyAcc.Size = new Size(94, 29);
-            btnMyAcc.TabIndex = 9;
-            btnMyAcc.Text = "button1";
-            btnMyAcc.UseVisualStyleBackColor = true;
-            btnMyAcc.Click += btnMyAcc_Click;
+            this.btnMyAcc.BackColor = System.Drawing.Color.Azure;
+            this.btnMyAcc.FlatAppearance.BorderSize = 0;
+            this.btnMyAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMyAcc.Location = new System.Drawing.Point(36, 419);
+            this.btnMyAcc.Name = "btnMyAcc";
+            this.btnMyAcc.Size = new System.Drawing.Size(94, 29);
+            this.btnMyAcc.TabIndex = 9;
+            this.btnMyAcc.Text = "button1";
+            this.btnMyAcc.UseVisualStyleBackColor = false;
+            this.btnMyAcc.Click += new System.EventHandler(this.btnMyAcc_Click);
             // 
             // btnCart
             // 
-            btnCart.Location = new Point(813, 19);
-            btnCart.Name = "btnCart";
-            btnCart.Size = new Size(94, 29);
-            btnCart.TabIndex = 10;
-            btnCart.Text = "Cart";
-            btnCart.UseVisualStyleBackColor = true;
-            btnCart.Click += btnCart_Click;
+            this.btnCart.BackColor = System.Drawing.Color.Azure;
+            this.btnCart.FlatAppearance.BorderSize = 0;
+            this.btnCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCart.Location = new System.Drawing.Point(813, 19);
+            this.btnCart.Name = "btnCart";
+            this.btnCart.Size = new System.Drawing.Size(94, 29);
+            this.btnCart.TabIndex = 10;
+            this.btnCart.Text = "Cart";
+            this.btnCart.UseVisualStyleBackColor = false;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
-            AutoScrollMargin = new Size(0, 50);
-            ClientSize = new Size(1095, 487);
-            Controls.Add(btnCart);
-            Controls.Add(btnMyAcc);
-            Controls.Add(uname);
-            Controls.Add(flowLayoutPanel1);
-            Controls.Add(lblCategory);
-            Controls.Add(comboBox1);
-            Controls.Add(btnPost);
-            Controls.Add(btnRegister);
-            Controls.Add(btnLogIn);
-            Controls.Add(btnSearch);
-            Controls.Add(tbSearch);
-            Name = "Form1";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            WindowState = FormWindowState.Maximized;
-            Load += Form1_Load;
-            SizeChanged += Form1_SizeChanged;
-            ((System.ComponentModel.ISupportInitialize)itemBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)itemBindingSource1).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.ClientSize = new System.Drawing.Size(1116, 508);
+            this.Controls.Add(this.btnCart);
+            this.Controls.Add(this.btnMyAcc);
+            this.Controls.Add(this.uname);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btnPost);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.btnLogIn);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.tbSearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Name = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

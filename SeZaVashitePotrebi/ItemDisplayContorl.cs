@@ -36,10 +36,14 @@ namespace SeZaVashitePotrebi
             pictureBox1.ImageLocation = item.Image;
 
             btnRemoveFromCart.Visible = false;
+            btnDelete.Visible = false;
 
             if (parentForm.Text.Contains("Cart"))
             {
                 btnRemoveFromCart.Visible = true;
+            } else if (parentForm.Text.Contains("Account"))
+            {
+                btnDelete.Visible = true;
             }
 
         }
@@ -48,11 +52,6 @@ namespace SeZaVashitePotrebi
         {
             ItemDetails itemDetailsForm = new ItemDetails(item);
             itemDetailsForm.ShowDialog();
-
-        }
-
-        private void ItemDisplayContorl_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -71,6 +70,37 @@ namespace SeZaVashitePotrebi
             if (parentForm is CartForm cartForm)
             {
                 cartForm.RefreshCart();
+            }
+        }
+
+        private void ItemDisplayContorl_MouseHover(object sender, EventArgs e)
+        {
+            this.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void ItemDisplayContorl_Load(object sender, EventArgs e)
+        {
+            if(Program.LoggedIn != null)
+            {
+                if (Program.LoggedIn.cartItems.Contains(item) || Program.LoggedIn.usersItems.Contains(item))
+                {
+                    btnAddToCart.Enabled = false;
+                }
+            }
+        }
+
+        private void ItemDisplayContorl_MouseLeave(object sender, EventArgs e)
+        {
+            this.BorderStyle= BorderStyle.None;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Program.AllItems.Remove(item);
+            LoggedIn.usersItems.Remove(item);
+            if(parentForm is MyAccountForm myAcc)
+            {
+                myAcc.RefreshMyAcc();
             }
         }
     }

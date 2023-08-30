@@ -23,8 +23,27 @@ namespace SeZaVashitePotrebi.Forms
         {
             pictureBox1.ImageLocation = item.Image;
             lbItemName.Text = item.Name;
+            rtbDesc.Text = item.Description.ToString();
             lblType.Text = item.Type.ToString();
-            label1.Text = item.User.Username.ToString();
+            lblUserName.Text = item.User.Username.ToString();
+            lblPrice.Text = item.Price.ToString();
+            lblEmail.Text = item.User.Email.ToString();
+            lblCity.Text = item.User.City.ToString();
+            lblCountry.Text = item.User.Country.ToString();
+            lblPhoneNum.Text = item.User.PhoneNumber.ToString();
+            if(Program.LoggedIn == null)
+            {
+                btnAddToCart.Visible = false;
+            } else if(Program.LoggedIn.cartItems.Contains(item) || Program.LoggedIn.usersItems.Contains(item) || Program.LoggedIn.purchasedItems.Contains(item))
+            {
+                btnAddToCart.Visible = false;
+            }
+        }
+
+        private void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            Program.LoggedIn.cartItems.Add(item);
+            this.Close();
         }
     }
 }

@@ -10,12 +10,9 @@ namespace SeZaVashitePotrebi
 {
     public partial class Form1 : Form
     {
-        public List<Item> AllItems { get; set; }
         public List<ItemDisplayContorl> Boxes { get; set; }
 
-        public AppUser? LoggedIn { get; set; }
-
-        public List<AppUser> RegisteredUsers { get; set; }
+        
 
         public Form1()
         {
@@ -23,18 +20,24 @@ namespace SeZaVashitePotrebi
 
             //Controls.Add(flowLayoutPanel1);
             Boxes = new List<ItemDisplayContorl>();
-            RegisteredUsers = new List<AppUser>();
+            Program.RegisteredUsers = new List<AppUser>();
             comboBox1.DataSource = Enum.GetValues(typeof(ItemCategory));
 
-            RegisteredUsers.Add(new AppUser("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
+            Program.RegisteredUsers.Add(new AppUser("username", "pass", "user@gmail.com", "Macedonia", "Negotino", "070/000-000", true));
+            Program.RegisteredUsers.Add(new AppUser("zokipoki", "pass", "zokipoki@gmail.com", "Macedonia", "Skopje", "072/000-000", true));
 
-            AllItems = new List<Item>() {
-                new Item("Book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg", RegisteredUsers[0]),
-                new Item("Laptop", ItemType.Buy, ItemCategory.Electronics, 0, 999.99m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg", RegisteredUsers[0]),
-                new Item("Bicycle", ItemType.Rent, ItemCategory.Vehicle, 7, 50m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg", RegisteredUsers[0]),
-                new Item("Camera", ItemType.Rent, ItemCategory.Electronics, 3, 25m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg", RegisteredUsers[0]),
-                new Item("Motorcycle", ItemType.Buy, ItemCategory.Vehicle, 0, 50m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg", RegisteredUsers[0])
+            Program.AllItems = new List<Item>() {
+                new Item("Book", "A cook book", ItemType.Buy, ItemCategory.Books, 0, 19.99m, "https://static.vecteezy.com/system/resources/thumbnails/001/486/411/small/open-book-icon-free-vector.jpg", Program.RegisteredUsers[0]),
+                new Item("Laptop", "New laptop", ItemType.Buy, ItemCategory.Electronics, 0, 1000m, "https://static.vecteezy.com/system/resources/thumbnails/000/551/713/small/laptop_007.jpg", Program.RegisteredUsers[0]),
+                new Item("Bicycle", "Used bicycle", ItemType.Rent, ItemCategory.Vehicle, 7, 100m, "https://static.vecteezy.com/system/resources/thumbnails/005/132/881/small/ecology-bicycle-icon-set-vector.jpg", Program.RegisteredUsers[0]),
+                new Item("Camera", "GoPro camera", ItemType.Rent, ItemCategory.Electronics, 3, 250m, "https://static.vecteezy.com/system/resources/thumbnails/006/998/431/small/photo-camera-icons-photo-camera-icon-design-illustration-photo-camera-simple-sign-photo-camera-image-vector.jpg", Program.RegisteredUsers[0]),
+                new Item("Motorcycle", "New superbike", ItemType.Buy, ItemCategory.Vehicle, 0, 20000m, "https://static.vecteezy.com/system/resources/thumbnails/004/875/492/small/motorbike-rider-motorcycle-racing-illustration-in-white-background-vector.jpg", Program.RegisteredUsers[0])
             };
+
+            foreach(Item item in Program.AllItems)
+            {
+                Program.RegisteredUsers[0].usersItems.Add(item);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -50,7 +53,7 @@ namespace SeZaVashitePotrebi
             btnCart.Visible = false;
             flowLayoutPanel1.Location = new Point(0, 80);
             flowLayoutPanel1.Size = new Size(this.Width, (int)((int)this.Height * 0.8));
-            MakeBoxes(AllItems);
+            MakeBoxes(Program.AllItems);
 
 
             /*            tbSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -79,8 +82,8 @@ namespace SeZaVashitePotrebi
             Boxes.Clear();
             for (int i = 0; i < it.Count; i++)
             {
-                Boxes.Add(new ItemDisplayContorl(it[i], LoggedIn, this));
-                if (LoggedIn == null)
+                Boxes.Add(new ItemDisplayContorl(it[i], Program.LoggedIn, this));
+                if (Program.LoggedIn == null)
                 {
                     Boxes[i].btnAddToCart.Visible = false;
                 }
@@ -94,26 +97,26 @@ namespace SeZaVashitePotrebi
         {
             string searchTerm = tbSearch.Text;
             ItemCategory selectedCategory = (ItemCategory)comboBox1.SelectedItem;
-            List<Item> search = AllItems.FindAll(el => el.Name.Contains(tbSearch.Text, StringComparison.CurrentCultureIgnoreCase) &&
+            List<Item> search = Program.AllItems.FindAll(el => el.Name.Contains(tbSearch.Text, StringComparison.CurrentCultureIgnoreCase) &&
                 (selectedCategory == ItemCategory.All || el.Category == selectedCategory));
             MakeBoxes(search);
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            LogInForm login = new LogInForm(RegisteredUsers);
+            LogInForm login = new LogInForm(Program.RegisteredUsers);
             if (login.ShowDialog() == DialogResult.OK && login.user != null)
             {
-                LoggedIn = login.user;
+                Program.LoggedIn = login.user;
                 btnLogIn.Visible = false;
                 btnRegister.Visible = false;
                 login.Close();
 
-                uname.Text = LoggedIn.Username;
+                uname.Text = Program.LoggedIn.Username;
                 uname.Location = new Point(this.Width - 350, tbSearch.Location.Y);
                 uname.Font = new Font("Arial", 14, FontStyle.Bold);
                 uname.Size = new Size(200, 40);
-                if (LoggedIn != null && LoggedIn.IsSeller)
+                if (Program.LoggedIn != null && Program.LoggedIn.IsSeller)
                 {
                     // If the user is logged in as a seller, make the "Post Item" button visible
                     btnPost.Visible = true;
@@ -133,7 +136,7 @@ namespace SeZaVashitePotrebi
                 btnCart.Visible = true;
                 btnCart.Size = new Size(120, 36);
                 btnCart.Location = new Point(uname.Location.X - 250, tbSearch.Location.Y);
-                MakeBoxes(AllItems);
+                MakeBoxes(Program.AllItems);
                 foreach (ItemDisplayContorl itemDisplay in Boxes)
                 {
                     itemDisplay.btnAddToCart.Visible = true;
@@ -143,30 +146,39 @@ namespace SeZaVashitePotrebi
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            RegisterForm register = new RegisterForm(RegisteredUsers);
+            RegisterForm register = new RegisterForm(Program.RegisteredUsers);
             if (register.ShowDialog() == DialogResult.OK && register.user != null)
             {
-                RegisteredUsers.Add(register.user);
+                Program.RegisteredUsers.Add(register.user);
                 register.Close();
             }
         }
 
         private void btnMyAcc_Click(object sender, EventArgs e)
         {
-            MyAccountForm myAccountForm = new MyAccountForm(LoggedIn);
+            MyAccountForm myAccountForm = new MyAccountForm(Program.LoggedIn);
             myAccountForm.ShowDialog();
-
+            MakeBoxes(Program.AllItems);
+            if(Program.LoggedIn == null)
+            {
+                btnPost.Visible = false;
+                btnMyAcc.Visible = false;
+                uname.Visible = false;
+                btnCart.Visible = false;
+                btnLogIn.Visible = true;
+                btnRegister.Visible = true;
+            }
         }
 
         private void btnPost_Click(object sender, EventArgs e)
         {
-            PostItemForm postItemForm = new PostItemForm(LoggedIn);
+            PostItemForm postItemForm = new PostItemForm(Program.LoggedIn);
             postItemForm.ShowDialog();
             if (postItemForm.newItem != null)
             {
-                AllItems.Add(postItemForm.newItem);
-                MakeBoxes(AllItems);
-                LoggedIn.usersItems.Add(postItemForm.newItem);
+                Program.AllItems.Add(postItemForm.newItem);
+                Program.LoggedIn.usersItems.Add(postItemForm.newItem);
+                MakeBoxes(Program.AllItems);
             }
 
         }
@@ -175,7 +187,7 @@ namespace SeZaVashitePotrebi
         {
             tbSearch.Size = new Size((int)((int)this.Width * 0.40), 27);
             btnSearch.Location = new Point((int)((int)this.Width * 0.40) + 20, tbSearch.Location.Y);
-            if (LoggedIn == null)
+            if (Program.LoggedIn == null)
             {
                 btnRegister.Location = new Point(this.Width - 150, tbSearch.Location.Y);
                 btnLogIn.Location = new Point(this.Width - 265, tbSearch.Location.Y);
@@ -194,8 +206,9 @@ namespace SeZaVashitePotrebi
 
         private void btnCart_Click(object sender, EventArgs e)
         {
-            CartForm cartForm = new CartForm(LoggedIn);
+            CartForm cartForm = new CartForm(Program.LoggedIn);
             cartForm.ShowDialog();
+            MakeBoxes(Program.AllItems);
         }
     }
 }

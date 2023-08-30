@@ -11,6 +11,7 @@ namespace SeZaVashitePotrebi
     {
 
         public string Name { get; set; }
+        public string Description { get; set; }
         public ItemCategory Category { get; set; }
         public ItemType Type { get; set; }
         public int Period { get; set; } // Used for rental items, represents the rental period in days
@@ -19,9 +20,10 @@ namespace SeZaVashitePotrebi
 
         public AppUser User { get; set; }
 
-        public Item(string name, ItemType type, ItemCategory itemCategory, int period, decimal price, string image, AppUser user)
+        public Item(string name, string description, ItemType type, ItemCategory itemCategory, int period, decimal price, string image, AppUser user)
         {
             Name = name;
+            Description = description;
             Type = type;
             Period = (int)period;
             Price = price;
