@@ -110,6 +110,6 @@ the register form will be displayed (you can register as a buyer or seller).
  - If you registered as a seller there will be a PostItem button, which by clicking it opens the POSTITEM form.
 	![Alt Image text](/screenshots/postItemForm.png?raw=true "PostItemForm")
  - By clicking the MyAccount button, MyAccountForm is opened where the user can track the products ordered/posted/bought.
-	\![Alt Image text](/screenshots/myAccountForm.png?raw=true "MyAccount")
+	![Alt Image text](/screenshots/myAccountForm.png?raw=true "MyAccount")
  - If you registered as a buyer, a shopping cart functionality is available.
 	![Alt Image text](/screenshots/cartForm.png?raw=true "Shopping Cart")
